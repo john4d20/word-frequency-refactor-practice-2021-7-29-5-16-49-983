@@ -24,7 +24,6 @@ public class WordFrequencyGame {
         return joiner.toString();
     }
 
-
     private List<WordInfo> calculateWordFrequency(String sentences){
         List<String> words = Arrays.asList(sentences.split(SPACE_PATTERN));
         List<String> distinctWords = words.stream().distinct().collect(Collectors.toList());
@@ -38,6 +37,4 @@ public class WordFrequencyGame {
         });
         return wordInfos;
     }
-
-
 }
