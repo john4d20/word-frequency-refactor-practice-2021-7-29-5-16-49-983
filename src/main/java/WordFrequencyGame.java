@@ -16,24 +16,7 @@ public class WordFrequencyGame {
 
             try {
 
-                //split the input string with 1 to n pieces of spaces
-                String[] words = inputStr.split("\\s+");
-
-                List<WordInfo> wordInfoList = new ArrayList<>();
-                for (String word : words) {
-                    WordInfo wordInfo = new WordInfo(word, 1);
-                    wordInfoList.add(wordInfo);
-                }
-
-                //get the map for the next step of sizing the same word
-                Map<String, List<WordInfo>> map = getListMap(wordInfoList);
-
-                List<WordInfo> list = new ArrayList<>();
-                for (Map.Entry<String, List<WordInfo>> entry : map.entrySet()){
-                    WordInfo wordInfo = new WordInfo(entry.getKey(), entry.getValue().size());
-                    list.add(wordInfo);
-                }
-                wordInfoList = list;
+                List<WordInfo> wordInfoList = calculateWordFrequency(inputStr);
 
                 wordInfoList.sort((word1, word2) -> word2.getWordCount() - word1.getWordCount());
 
@@ -49,6 +32,28 @@ public class WordFrequencyGame {
                 return "Calculate Error";
             }
         }
+    }
+
+    private List<WordInfo> calculateWordFrequency(String inputStr) {
+        //split the input string with 1 to n pieces of spaces
+        String[] words = inputStr.split("\\s+");
+
+        List<WordInfo> wordInfoList = new ArrayList<>();
+        for (String word : words) {
+            WordInfo wordInfo = new WordInfo(word, 1);
+            wordInfoList.add(wordInfo);
+        }
+
+        //get the map for the next step of sizing the same word
+        Map<String, List<WordInfo>> map = getListMap(wordInfoList);
+
+        List<WordInfo> list = new ArrayList<>();
+        for (Map.Entry<String, List<WordInfo>> entry : map.entrySet()){
+            WordInfo wordInfo = new WordInfo(entry.getKey(), entry.getValue().size());
+            list.add(wordInfo);
+        }
+        wordInfoList = list;
+        return wordInfoList;
     }
 
 
