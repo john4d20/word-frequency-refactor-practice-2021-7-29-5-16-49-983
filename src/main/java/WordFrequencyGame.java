@@ -6,22 +6,13 @@ public class WordFrequencyGame {
     private static final String SPACE_PATTERN = "\\s+";
 
     public String getResult(String inputStr){
-
-        if (inputStr.split(SPACE_PATTERN).length==1) {
-            return inputStr + " 1";
-        } else {
-
-            try {
-
+        try {
                 List<WordInfo> wordInfoList = calculateWordFrequency(inputStr);
                 wordInfoList.sort((word1, word2) -> word2.getWordCount() - word1.getWordCount());
                 return getString(wordInfoList);
             } catch (Exception e) {
-
-
                 return "Calculate Error";
             }
-        }
     }
 
     private String getString(List<WordInfo> wordInfoList) {
@@ -45,7 +36,6 @@ public class WordFrequencyGame {
             WordInfo wordInfo = new WordInfo(distinctWord, frequency);
             wordInfos.add(wordInfo);
         });
-
         return wordInfos;
     }
 
