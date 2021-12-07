@@ -5,17 +5,17 @@ public class WordFrequencyGame {
 
     private static final String SPACE_PATTERN = "\\s+";
 
-    public String getResult(String inputStr){
+    public String getWordFrequencyResult(String inputStr){
         try {
                 List<WordInfo> wordInfoList = calculateWordFrequency(inputStr);
                 wordInfoList.sort((word1, word2) -> word2.getWordCount() - word1.getWordCount());
-                return getString(wordInfoList);
+                return getWordFrequencyString(wordInfoList);
             } catch (Exception e) {
                 return "Calculate Error";
             }
     }
 
-    private String getString(List<WordInfo> wordInfoList) {
+    private String getWordFrequencyString(List<WordInfo> wordInfoList) {
         StringJoiner joiner = new StringJoiner("\n");
         for (WordInfo wordInfo : wordInfoList) {
             String s = wordInfo.getValue() + " " +wordInfo.getWordCount();

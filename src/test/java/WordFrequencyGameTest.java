@@ -56,15 +56,14 @@ public class WordFrequencyGameTest {
     @Test
     public void should_process_empty_string() throws Exception {
         //Given
-        String inputStr = null;
         String expectResult = "Calculate Error";
-        validate_Input_words_process_to_expected_word(inputStr, expectResult);
+        validate_Input_words_process_to_expected_word(null, expectResult);
     }
 
     private void validate_Input_words_process_to_expected_word(String inputStr, String expectResult) {
         WordFrequencyGame game = new WordFrequencyGame();
         //When
-        String result = game.getResult(inputStr);
+        String result = game.getWordFrequencyResult(inputStr);
         //Then
         assertThat(result).isEqualTo(expectResult);
     }
