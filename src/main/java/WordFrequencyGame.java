@@ -8,7 +8,7 @@ public class WordFrequencyGame {
     public String getWordFrequencyResult(String inputStr){
         try {
                 List<WordInfo> wordInfoList = calculateWordFrequency(inputStr);
-                wordInfoList.sort((word1, word2) -> word2.getWordCount() - word1.getWordCount());
+                wordInfoList.sort((wordInfo1, wordInfo2) -> wordInfo2.getWordCount() - wordInfo1.getWordCount());
                 return getWordFrequencyString(wordInfoList);
             } catch (Exception e) {
                 return "Calculate Error";
