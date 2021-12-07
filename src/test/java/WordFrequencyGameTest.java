@@ -54,7 +54,7 @@ public class WordFrequencyGameTest {
     }
 
     @Test
-    public void should_process_empty_string() throws Exception {
+    public void should_process_null() throws Exception {
         //Given
         String expectResult = "Calculate Error";
         validate_Input_words_process_to_expected_word(null, expectResult);
